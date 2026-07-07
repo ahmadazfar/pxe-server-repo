@@ -1,0 +1,10 @@
+DEFAULT menu.c32
+PROMPT 0
+TIMEOUT 50
+
+MENU TITLE UBUNTU SERVER INSTALL
+
+LABEL PXE TEST
+  MENU LABEL Automated Ubuntu Server 24.04 Install
+  KERNEL ubuntu/vmlinuz
+  APPEND initrd=ubuntu/initrd autoinstall ds=nocloud-net;s=http://192.168.56.10/autoinstall/ url=http://192.168.56.10/ubuntu-server.iso ip=dhcp cloud-config-url=http://192.168.56.10/autoinstall/user-data toram ---

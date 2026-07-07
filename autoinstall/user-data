@@ -1,0 +1,29 @@
+#cloud-config
+autoinstall:
+    version: 1
+    refresh-installer:
+        update: no
+    interactive-sections: []
+    locale: en_US.UTF-8
+    keyboard:
+        layout: us
+        variant: ""
+    identity:
+        hostname: burnin-target
+        username: tester
+        password: "$6$A/RplHLwHodYHbwD$QK.X6heRURNrFm45X8KroabDAzxww/SRU7P45EcUQDRnHCYYCsT1RPaBWaPBzrtErpHbUkI5Y1ufqArvz/X/T."
+    network:
+        version: 2
+        ethernets:
+            enp0s3:
+                dhcp4: true
+    ssh:
+        install-server: true
+        allow-pw: true
+    packages:
+        - curl
+        - python3
+
+ bootcmd:
+     - curl -o /usr/local/bin/burnin.py http://192.168.56.10/autoinstall/burnin.py
+     - python3 /usr/local/bin/burnin.py > /dev/tty1 2>&1 
