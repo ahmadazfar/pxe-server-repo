@@ -48,27 +48,24 @@ Leverages cloud-init standards to pass installation choices programmatically to 
 To replicate this environment on a fresh Ubuntu virtual machine instance, execute the baseline sync routines:
 
 ```bash
-# 1. Update systems and pull system prerequisites
+# Update systems and pull system prerequisites
 sudo apt update && sudo apt install -y dnsmasq syslinux pxelinux apache2 openssh-server
 
-# 2. Configure the DHCP & TFTP Server
+# Configure the DHCP & TFTP Server
 # Edit dnsmasq config file:
 sudo nano /etc/dnsmasq.conf
 # Restart dnsmasq:
 sudo systemctl restart  dnsmasq
 
-# 3. Create TFTP Directory with Bootloaders
+# Create TFTP Directory with Bootloaders
 sudo mkdir -p /srv/tftp/pxelinux.cfg
 sudo cp /usr/lib/PXELINUX/pxelinux.0 /srv/tftp/
 sudo cp /usr/lib/syslinux/modules/bios/{ldlinux.c32,menu.c32,libutil.c32,libcom32.c32} /srv/tftp/
 sudo nano /srv/tftp/pxelinux.cfg/default
 
-# 4. Mount the ISO image and copy 'vmlinuz' and 'initrd' files
-#Create the web directory and mount the CD-ROM drive properly
+# Mount the ISO image and copy 'vmlinuz' and 'initrd' files
 sudo mkdir -p /var/www/html/ubuntu_iso
 sudo mount /dev/sr0 /var/www/html/ubuntu_iso
-
-# Build the TFTP folder infrastructure and extract the network boot kernels
 sudo mkdir -p /srv/tftp/ubuntu
 sudo cp /var/www/html/ubuntu_iso/casper/{vmlinuz,initrd} /srv/tftp/ubuntu/
 
