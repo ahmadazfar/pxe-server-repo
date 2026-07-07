@@ -52,10 +52,10 @@ To replicate this environment on a fresh Ubuntu virtual machine instance, execut
 sudo apt update && sudo apt install -y dnsmasq syslinux pxelinux apache2 openssh-server
 
 # 2. Configure the DHCP & TFTP Server
-Edit dnsmasq config file:
-    sudo nano /etc/dnsmasq.conf
-Restart dnsmasq:
-    sudo systemctl restart  dnsmasq
+# Edit dnsmasq config file:
+sudo nano /etc/dnsmasq.conf
+# Restart dnsmasq:
+sudo systemctl restart  dnsmasq
 
 # 3. Create TFTP Directory with Bootloaders
 sudo mkdir -p /srv/tftp/pxelinux.cfg
