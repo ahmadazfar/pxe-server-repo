@@ -15,10 +15,11 @@ This repository documents the automation and configuration files used to spin up
 
 ```text
 ├── dnsmasq.conf                # Unified DHCP & TFTP Engine configuration
+├── default                     # File configuration for /srv/tftp/pxelinux.cfg
 ├── autoinstall/                # Automated installation manifests
 │   ├── user-data               # Cloud-init automated system configurations
-│   ├── meta-data               # Instance tracking file (empty stub)
-│   ├── vendor-data             # Vendor orchestration hooks
+│   ├── meta-data               
+│   ├── vendor-data             
 │   └── burnin.py               # Post-install system configuration testing script
 └── packages/                   # Offline execution pre-cached dependencies
     ├── libaio1t64.deb          # Async I/O engine prerequisite
@@ -31,15 +32,12 @@ This repository documents the automation and configuration files used to spin up
 
 ### 1. Networking & Identity Management (`dnsmasq.conf`)
 The central engine handling network addressing and bootfile handshakes. It binds to the host-only virtual network switch to safely isolate traffic from production routes.
-- **DHCP Proxy Mode:** Listens to core discovery steps and injects option matrix values.
-- **Root TFTP Assets Directory:** Active path targeted to serve initial system bootstrap footprints (`/src/`).
 
-### 2. Auto-Provisioning Framework (`autoinstall/`)
-Leverages cloud-init standards to pass installation choices programmatically to testing targets:
-- **`user-data`**: Dictates root account details, block device partitions, network presets, and custom execution hooks to bypass standard visual menus.
-- **`meta-data`**: Create empty file.
-- **`vendor-data`**: Create empty file.
-- **`packages/`**: Preserves isolated offline package binaries required on target environments immediately upon provisioning wrap-ups.
+### 2. Boot Menu Configuration (pxelinux.cfg/default)
+The roadmap file dictating the initial bootstrap phase for bare-metal and virtual machine target environments. It provides the terminal menu interface and delivers operational boot parameters over the network.
+
+### 3. Auto-Provisioning Framework (`autoinstall/`)
+Leverages cloud-init standards to pass installation choices programmatically to testing targets.
 
 ---
 
