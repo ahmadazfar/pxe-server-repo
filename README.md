@@ -64,17 +64,17 @@ sudo cp /usr/lib/syslinux/modules/bios/{ldlinux.c32,menu.c32,libutil.c32,libcom3
 sudo nano /srv/tftp/pxelinux.cfg/default
 
 # 4. Mount the ISO image and copy 'vmlinuz' and 'initrd' files
-Create the web directory and mount the CD-ROM drive properly
-    sudo mkdir -p /var/www/html/ubuntu_iso
-    sudo mount /dev/sr0 /var/www/html/ubuntu_iso
+#Create the web directory and mount the CD-ROM drive properly
+sudo mkdir -p /var/www/html/ubuntu_iso
+sudo mount /dev/sr0 /var/www/html/ubuntu_iso
 
-Build the TFTP folder infrastructure and extract the network boot kernels
-    sudo mkdir -p /srv/tftp/ubuntu
-    sudo cp /var/www/html/ubuntu_iso/casper/{vmlinuz,initrd} /srv/tftp/ubuntu/
+# Build the TFTP folder infrastructure and extract the network boot kernels
+sudo mkdir -p /srv/tftp/ubuntu
+sudo cp /var/www/html/ubuntu_iso/casper/{vmlinuz,initrd} /srv/tftp/ubuntu/
 
-Create the raw ISO file image that your autoinstall engine needs over HTTP
-    sudo dd if=/dev/sr0 of=/var/www/html/ubuntu-server.iso bs=4M status=progress
-    sudo chmod 644 /var/www/html/ubuntu-server.iso
+# Create the raw ISO file image that your autoinstall engine needs over HTTP
+sudo dd if=/dev/sr0 of=/var/www/html/ubuntu-server.iso bs=4M status=progress
+sudo chmod 644 /var/www/html/ubuntu-server.iso
 
 # 5. Deploy infrastructure layout profiles
 sudo mkdir -p /var/www/html/autoinstall
