@@ -33,7 +33,7 @@ This repository documents the automation and configuration files used to spin up
 ### 1. Networking & Identity Management (`dnsmasq.conf`)
 The central engine handling network addressing and bootfile handshakes. It binds to the host-only virtual network switch to safely isolate traffic from production routes.
 
-### 2. Boot Menu Configuration (pxelinux.cfg/default)
+### 2. Boot Menu Configuration (`pxelinux.cfg/default`)
 The roadmap file dictating the initial bootstrap phase for bare-metal and virtual machine target environments. It provides the terminal menu interface and delivers operational boot parameters over the network.
 
 ### 3. Auto-Provisioning Framework (`autoinstall/`)
