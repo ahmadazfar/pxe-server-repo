@@ -1,6 +1,10 @@
 # VM PXE Server Infrastructure Setup
 
-This repository documents the automation and configuration files used to spin up a fully functioning Network Boot (PXE) Server inside an Ubuntu Virtual Machine environment.
+This repository documents the automation and configuration files used to spin up a fully functioning Network Boot (PXE) Server inside an Ubuntu Virtual Machine environment. 
+
+There are two primary deployments in this repository:
+1. **Linux OS Deployment**
+2. **Custom RAM OS Deployment**
 
 ## 🚀 Infrastructure Topology
 
@@ -10,6 +14,15 @@ This repository documents the automation and configuration files used to spin up
 - **Target Deployment:** Automated OS provisioning via HTTP/TFTP protocol matrix.
 
 ---
+
+# Linux OS Deployment (Client VM)
+Automates the network installation of a full Linux operating system (e.g., Ubuntu Server/Desktop) onto target client Virtual Machines over the local network using PXE.
+
+Automated Installation: Utilizes automated response files (autoinstall / cloud-init) to eliminate manual user input during the OS installation process.
+
+Network Components: Combines DHCP (assigns IP addresses and PXE boot filenames), TFTP (delivers the initial syslinux/grub bootloader and Linux kernel), and HTTP/NFS (hosts the full OS installation ISO/squashfs image).
+
+Use Case: Provisioning bare-metal VMs, scaling client infrastructure, or resetting virtual machines with a standardized, production-ready OS image.
 
 ## 📂 Repository Layout
 
