@@ -15,7 +15,7 @@ There are two primary deployments in this repository:
 
 ---
 
-# Linux OS Deployment (Client VM)
+# 1) Linux OS Deployment (Client VM)
 Automates the network installation of a full Linux operating system (e.g., Ubuntu Server/Desktop) onto target client Virtual Machines over the local network using PXE.
 
 Automated Installation: Utilizes automated response files (autoinstall / cloud-init) to eliminate manual user input during the OS installation process.
@@ -92,7 +92,7 @@ sudo nano /var/www/html/autoinstall/user-data
 
 ```
 
-# Custom PXE RAM-OS
+# 2) Custom PXE RAM-OS (Client VM)
 A lightweight, diskless Linux distribution built using BusyBox, cpio, and custom scripts. Designed to boot over the network via PXE/iPXE directly into RAM to perform rapid PCI hardware discovery (lspci) without relying on host disks.
 
        ┌──────────────────────────────┐
