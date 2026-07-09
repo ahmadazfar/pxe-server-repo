@@ -78,3 +78,41 @@ sudo touch /var/www/html/autoinstall/vendor-data
 sudo nano /var/www/html/autoinstall/user-data
 
 ```
+
+# Custom PXE RAM-OS
+A lightweight, diskless Linux distribution built using BusyBox, cpio, and custom scripts. Designed to boot over the network via PXE/iPXE directly into RAM to perform rapid PCI hardware discovery (lspci) without relying on host disks.
+
+       ┌──────────────────────────────┐
+       │     1. Prepare RootFS        │
+       │  (BusyBox, lspci, pci.ids)   │
+       └──────────────┬───────────────┘
+                      │
+                      ▼
+       ┌──────────────────────────────┐
+       │ 2. Fix Relative Symlinks     │
+       │   (/bin/sh -> busybox)       │
+       └──────────────┬───────────────┘
+                      │
+                      ▼
+       ┌──────────────────────────────┐
+       │ 3. Resolve Shared Libraries  │
+       │ (Copy missing .so files)    │
+       └──────────────┬───────────────┘
+                      │
+                      ▼
+       ┌──────────────────────────────┐
+       │ 4. Verify via Local Chroot   │
+       │ (sudo chroot rootfs /bin/sh) │
+       └──────────────┬───────────────┘
+                      │
+                      ▼
+       ┌──────────────────────────────┐
+       │ 5. Compress into Initramfs   │
+       │   (find | cpio | gzip)       │
+       └──────────────┬───────────────┘
+                      │
+                      ▼
+       ┌──────────────────────────────┐
+       │ 6. Deploy to TFTP/PXE Folder │
+       │  (/tftpboot/ram_os/boot/...) │
+       └──────────────────────────────┘
