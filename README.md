@@ -24,21 +24,6 @@ Network Components: Combines DHCP (assigns IP addresses and PXE boot filenames),
 
 Use Case: Provisioning bare-metal VMs, scaling client infrastructure, or resetting virtual machines with a standardized, production-ready OS image.
 
-## 📂 Repository Layout
-
-```text
-├── dnsmasq.conf                # Unified DHCP & TFTP Engine configuration
-├── default                     # File configuration for /srv/tftp/pxelinux.cfg
-├── autoinstall/                # Automated installation manifests
-│   ├── user-data               # Cloud-init automated system configurations
-│   ├── meta-data               
-│   ├── vendor-data             
-│   └── burnin.py               # Post-install system configuration testing script
-└── packages/                   # Offline execution pre-cached dependencies
-    ├── libaio1t64.deb          # Async I/O engine prerequisite
-    └── stress-ng.deb           # System load and validation test-bed tool
-```
-
 ---
 
 ## ⚙️ Service Configurations
