@@ -114,3 +114,6 @@ A lightweight, diskless Linux distribution built using BusyBox, cpio, and custom
        │ 6. Deploy to TFTP/PXE Folder │
        │  (/tftpboot/ram_os/boot/...) │
        └──────────────────────────────┘
+
+       <img width="747" height="397" alt="image" src="https://github.com/user-attachments/assets/605d7826-d9b3-4c38-893f-a23ca0a4d9a5" />
+
