@@ -6,6 +6,13 @@ There are two primary deployments in this repository:
 1. **Linux OS Deployment**
 2. **Custom RAM OS Deployment**
 
+---
+
+## Virtualbox
+<img width="1918" height="1008" alt="image" src="https://github.com/user-attachments/assets/8e97084b-a83b-409d-aa0c-0ed5a8b4ec2b" />
+
+---
+
 ## 🚀 Infrastructure Topology
 
 - **Host OS:** Windows 11 (Hypervisor Engine)
@@ -77,6 +84,12 @@ sudo nano /var/www/html/autoinstall/user-data
 
 ```
 
+<img width="727" height="400" alt="image" src="https://github.com/user-attachments/assets/6f4e5173-ddc5-4805-a258-c4365f400f41" />
+<img width="722" height="406" alt="image" src="https://github.com/user-attachments/assets/149ac9c8-46af-4ed5-bb92-ec55f2ee5c20" />
+<img width="726" height="67" alt="image" src="https://github.com/user-attachments/assets/c9f7348a-0dbc-4c8d-8287-de576a86ca8f" />
+
+---
+
 # 2) Custom PXE RAM-OS (Client VM)
 A lightweight, diskless Linux distribution built using BusyBox, cpio, and custom scripts. Designed to boot over the network via PXE/iPXE directly into RAM to perform rapid PCI hardware discovery (lspci) without relying on host disks.
 
@@ -116,4 +129,5 @@ A lightweight, diskless Linux distribution built using BusyBox, cpio, and custom
        └──────────────────────────────┘
 
 <img width="747" height="397" alt="image" src="https://github.com/user-attachments/assets/605d7826-d9b3-4c38-893f-a23ca0a4d9a5" />
+<img width="723" height="402" alt="image" src="https://github.com/user-attachments/assets/1d5df80b-7996-48c0-bb8d-4f69aecbebd0" />
 
